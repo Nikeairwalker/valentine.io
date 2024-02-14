@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Will You Be My Valentine?</title>
+<style>
+  /* Import the Great Vibes font from Google Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Great Vibes', cursive;
+    font-size: 36px;
+    color: blue; /* Change font color to blue */
+    font-weight: bold; /* Increase font weight */
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    background-color: #fff; /* Set a fallback background color */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  #question {
+    font-size: 48px; /* Make the question bigger */
+    margin-bottom: 30px; /* Add margin at the bottom */
+  }
+
+  .love-message-container {
+    margin-top: 50px;
+    display: none; /* Hide the container initially */
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 10px; /* Adjust margin around buttons */
+  }
+</style>
+</head>
+<body>
+
+<div id="question">Will you be my Valentine?</div>
+
+<div class="love-message-container">
+  <div class="love-message">I love you Ritika</div>
+  <img src="https://c.tenor.com/jjM8wEXXNqwAAAAd/tenor.gif" alt="Love GIF">
+</div>
+
+<div class="button-container">
+  <button class="btn" id="yesBtn">Yes</button>
+  <button class="btn" id="noBtn">No</button>
+</div>
+
+<script>
+  document.getElementById('yesBtn').addEventListener('click', function() {
+    var loveMessageContainer = document.querySelector('.love-message-container');
+    var question = document.getElementById('question');
+    var body = document.querySelector('body');
+    loveMessageContainer.style.display = 'block'; // Show the container when "Yes" is clicked
+    question.style.display = 'none'; // Hide the question when "Yes" is clicked
+    body.style.backgroundImage = 'url(https://images.pexels.com/photos/3607031/pexels-photo-3607031.jpeg?auto=compress&cs=tinysrgb&w=1200)'; // Show the background when "Yes" is clicked
+  });
+
+  document.getElementById('noBtn').addEventListener('click', function() {
+    var yesBtn = document.getElementById('yesBtn');
+    var fontSize = parseInt(window.getComputedStyle(yesBtn).fontSize);
+    var padding = window.getComputedStyle(yesBtn).padding;
+    var currentPadding = parseInt(padding.split(" ")[0]);
+    var currentFontSize = fontSize;
+
+    currentFontSize += 2;
+    currentPadding += 2;
+    yesBtn.style.fontSize = currentFontSize + 'px';
+    yesBtn.style.padding = currentPadding + 'px ' + (currentPadding + 10) + 'px';
+  });
+</script>
+
+</body>
+</html>
